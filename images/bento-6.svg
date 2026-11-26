@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <!-- PLACEHOLDER IMAGE: replace this file with a real photo of the bento box -->
+  <rect width="400" height="300" fill="#EFE8DA"/>
+  <rect x="80" y="55" width="240" height="190" rx="28" fill="#14213D"/>
+  <rect x="98" y="73" width="120" height="154" rx="18" fill="#2E5B9A"/>
+  <rect x="226" y="73" width="76" height="72" rx="18" fill="#FF6B5A"/>
+  <rect x="226" y="155" width="76" height="72" rx="18" fill="#3A6B5C"/>
+  <circle cx="264" cy="109" r="20" fill="#fff" opacity=".5"/>
+  <circle cx="246" cy="190" r="10" fill="#fff" opacity=".45"/>
+  <circle cx="270" cy="182" r="10" fill="#fff" opacity=".45"/>
+  <circle cx="280" cy="206" r="10" fill="#fff" opacity=".45"/>
+  <text x="200" y="278" font-family="Arial" font-size="14" fill="#6B7280" text-anchor="middle">placeholder image</text>
+</svg>
