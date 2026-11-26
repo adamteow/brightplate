@@ -1,0 +1,247 @@
+<!DOCTYPE html> <!-- tells the browser this file is an HTML5 page -->
+<html lang="en"> <!-- root element of the page; lang="en" says the page is in English -->
+<head> <!-- head holds information ABOUT the page (not shown on the page) -->
+  <meta charset="UTF-8"> <!-- lets the page show all characters correctly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- makes the page fit phone screens -->
+  <title>BrightPlate | Healthy Bulk Catering</title> <!-- text shown on the browser tab -->
+  <link rel="icon" href="images/favicon/favicon.ico" sizes="any"> <!-- main icon shown on the browser tab -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png"> <!-- 32px icon for sharper tabs -->
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png"> <!-- 16px icon for small tabs -->
+  <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png"> <!-- icon used when saved to an iPhone or iPad home screen -->
+  <link rel="manifest" href="images/favicon/site.webmanifest"> <!-- app name and icons for Android phones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- speeds up loading of the Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet"> <!-- loads the Poppins and Inter fonts (needs internet) -->
+  <link rel="stylesheet" href="styles.css"> <!-- connects our CSS file to this page -->
+</head> <!-- end of head -->
+<body> <!-- body holds everything that is shown on the page -->
+
+  <header class="site-header"> <!-- header = the top bar of the website -->
+    <nav class="navbar container"> <!-- nav = the navigation menu; container keeps the content centred -->
+      <a href="index.html" class="logo"> <!-- clicking the logo goes back to the Home page -->
+        <img src="images/logo/BP-Full-White-web.png" alt="BrightPlate" height="40"> <!-- final white logo (icon + name) so it shows on the dark header -->
+      </a> <!-- end of logo link -->
+      <ul class="nav-links"> <!-- unordered list holding the menu links -->
+        <li><a href="index.html" class="active">Home</a></li> <!-- Home link; "active" highlights the current page -->
+        <li><a href="browse.html">Browse Bento Boxes</a></li> <!-- link to the Browse page -->
+        <li><a href="#how-it-works">How It Works</a></li> <!-- jumps down to the How It Works section on this page -->
+        <li><a href="#">Compare</a></li> <!-- Compare page (not built yet, so # for now) -->
+      </ul> <!-- end of menu list -->
+      <div class="nav-buttons"> <!-- group for the Log in and Register buttons -->
+        <a href="#" class="btn btn-text">Log in</a> <!-- Log in button (page not built yet) -->
+        <a href="#" class="btn btn-primary btn-small">Register</a> <!-- Register button (page not built yet) -->
+      </div> <!-- end of button group -->
+    </nav> <!-- end of navigation -->
+  </header> <!-- end of header -->
+
+  <main> <!-- main = the main content of the page -->
+
+    <section class="hero container"> <!-- hero = the big welcome section at the top -->
+      <div class="hero-text"> <!-- left side: the words -->
+        <span class="tag tag-green">Bulk catering with full nutrition info</span> <!-- small label above the heading -->
+        <h1>Healthy bulk catering, with <span class="highlight">nothing hidden</span>.</h1> <!-- main heading; span lets us colour two words -->
+        <p>Browse Bento Boxes from local caterers, check the ingredients, allergens and calories first, then order online for your office, event or party.</p> <!-- short description -->
+        <form class="hero-search" action="browse.html" method="get"> <!-- search form that opens the Browse page -->
+          <input type="text" name="q" placeholder="Search Bento Boxes, e.g. grilled fish"> <!-- box where the visitor types -->
+          <button type="submit" class="btn btn-primary">Find Your Menu</button> <!-- button that sends the search -->
+        </form> <!-- end of search form -->
+        <ul class="hero-checks"> <!-- list of three small selling points -->
+          <li>&#10003; Allergens shown</li> <!-- &#10003; is a tick symbol -->
+          <li>&#10003; Halal-certified options</li> <!-- selling point 2 -->
+          <li>&#10003; Order online</li> <!-- selling point 3 -->
+        </ul> <!-- end of selling points -->
+      </div> <!-- end of left side -->
+      <div class="hero-image"> <!-- right side: the picture -->
+        <img src="images/hero-bento.svg" alt="A Bento Box with three compartments"> <!-- placeholder hero picture -->
+      </div> <!-- end of right side -->
+    </section> <!-- end of hero -->
+
+    <section class="how-it-works" id="how-it-works"> <!-- how it works section; id lets the menu jump here -->
+      <div class="container"> <!-- keeps the content centred -->
+        <h2 class="section-title">How it works</h2> <!-- section heading -->
+        <p class="section-sub">Three simple steps from menu to delivery</p> <!-- small text under the heading -->
+        <div class="steps"> <!-- row that holds the three step cards -->
+          <article class="step-card"> <!-- step 1 card -->
+            <div class="step-icon">&#128269;</div> <!-- placeholder icon (magnifying glass emoji) -->
+            <h3>1. Browse &amp; filter</h3> <!-- step title; &amp; shows the & symbol -->
+            <p>Filter by calories, allergens, halal, cuisine and price.</p> <!-- step description -->
+          </article> <!-- end of step 1 -->
+          <article class="step-card"> <!-- step 2 card -->
+            <div class="step-icon">&#9878;</div> <!-- placeholder icon (scales symbol) -->
+            <h3>2. Compare &amp; add to cart</h3> <!-- step title -->
+            <p>Compare up to 3 boxes, then add your choice to the cart.</p> <!-- step description -->
+          </article> <!-- end of step 2 -->
+          <article class="step-card"> <!-- step 3 card -->
+            <div class="step-icon">&#128179;</div> <!-- placeholder icon (credit card emoji) -->
+            <h3>3. Pay &amp; get it delivered</h3> <!-- step title -->
+            <p>Check out online. The caterer confirms and delivers on your date.</p> <!-- step description -->
+          </article> <!-- end of step 3 -->
+        </div> <!-- end of step row -->
+      </div> <!-- end of container -->
+    </section> <!-- end of how it works -->
+
+    <section class="featured container"> <!-- featured Bento Boxes section -->
+      <div class="section-header"> <!-- row with the heading on the left and a button on the right -->
+        <div> <!-- wrapper for the heading and its small text -->
+          <h2 class="section-title">Featured Bento Boxes</h2> <!-- section heading -->
+          <p class="section-sub">Popular choices from our caterers</p> <!-- small text under the heading -->
+        </div> <!-- end of heading wrapper -->
+        <a href="browse.html" class="btn btn-outline">View all Bento Boxes &rarr;</a> <!-- button to the Browse page; &rarr; is an arrow -->
+      </div> <!-- end of section header -->
+      <div class="box-grid"> <!-- grid that lays the cards out in 3 columns -->
+
+        <article class="box-card"> <!-- card for Bento Box 1 -->
+          <div class="box-image"> <!-- frame for the picture and the calorie badge -->
+            <img src="images/bento-1.svg" alt="Grilled Fish and Brown Rice Box"> <!-- placeholder picture -->
+            <span class="kcal-badge">480 kcal</span> <!-- calorie badge in the corner -->
+          </div> <!-- end of picture frame -->
+          <div class="box-body"> <!-- text part of the card -->
+            <p class="box-caterer">Lean Plate Catering</p> <!-- caterer name -->
+            <h3 class="box-name"><a href="detail.html">Grilled Fish &amp; Brown Rice Box</a></h3> <!-- box name linking to the Detail page -->
+            <div class="box-tags"> <!-- row of dietary tags -->
+              <span class="tag tag-green">High-Protein</span> <!-- tag 1 -->
+              <span class="tag tag-green">Low-GI</span> <!-- tag 2 -->
+              <span class="tag tag-blue">Halal-certified</span> <!-- tag 3 (blue for halal) -->
+            </div> <!-- end of tags -->
+            <p class="box-allergen">Contains: Fish</p> <!-- allergen line -->
+            <div class="box-footer"> <!-- bottom row: price and button -->
+              <div> <!-- wrapper for price and minimum order -->
+                <span class="box-price">$13.50</span> <!-- price per box -->
+                <span class="box-unit">/ box</span> <!-- small unit text -->
+                <p class="box-moq">Min. order 20 boxes</p> <!-- minimum order quantity -->
+              </div> <!-- end of price wrapper -->
+              <a href="detail.html" class="btn btn-outline btn-small">View details</a> <!-- button to the Detail page -->
+            </div> <!-- end of footer row -->
+          </div> <!-- end of text part -->
+        </article> <!-- end of card 1 -->
+
+        <article class="box-card"> <!-- card for Bento Box 2 -->
+          <div class="box-image"> <!-- frame for the picture and the calorie badge -->
+            <img src="images/bento-2.svg" alt="Quinoa and Roasted Veg Salad Box"> <!-- placeholder picture -->
+            <span class="kcal-badge">390 kcal</span> <!-- calorie badge -->
+          </div> <!-- end of picture frame -->
+          <div class="box-body"> <!-- text part of the card -->
+            <p class="box-caterer">Fresh Tiers Catering</p> <!-- caterer name -->
+            <h3 class="box-name"><a href="detail.html">Quinoa &amp; Roasted Veg Salad Box</a></h3> <!-- box name -->
+            <div class="box-tags"> <!-- row of dietary tags -->
+              <span class="tag tag-green">Vegan</span> <!-- tag 1 -->
+              <span class="tag tag-green">Low-GI</span> <!-- tag 2 -->
+            </div> <!-- end of tags -->
+            <p class="box-allergen box-allergen-none">No major allergens listed</p> <!-- extra class turns the text green -->
+            <div class="box-footer"> <!-- bottom row: price and button -->
+              <div> <!-- wrapper for price and minimum order -->
+                <span class="box-price">$12.50</span> <!-- price per box -->
+                <span class="box-unit">/ box</span> <!-- small unit text -->
+                <p class="box-moq">Min. order 15 boxes</p> <!-- minimum order quantity -->
+              </div> <!-- end of price wrapper -->
+              <a href="detail.html" class="btn btn-outline btn-small">View details</a> <!-- button to the Detail page -->
+            </div> <!-- end of footer row -->
+          </div> <!-- end of text part -->
+        </article> <!-- end of card 2 -->
+
+        <article class="box-card"> <!-- card for Bento Box 3 -->
+          <div class="box-image"> <!-- frame for the picture and the calorie badge -->
+            <img src="images/bento-3.svg" alt="Vegetarian Briyani Box"> <!-- placeholder picture -->
+            <span class="kcal-badge">560 kcal</span> <!-- calorie badge -->
+          </div> <!-- end of picture frame -->
+          <div class="box-body"> <!-- text part of the card -->
+            <p class="box-caterer">Heritage Spice Kitchen</p> <!-- caterer name -->
+            <h3 class="box-name"><a href="detail.html">Vegetarian Briyani Box</a></h3> <!-- box name -->
+            <div class="box-tags"> <!-- row of dietary tags -->
+              <span class="tag tag-green">Vegetarian</span> <!-- tag 1 -->
+              <span class="tag tag-blue">Halal-certified</span> <!-- tag 2 -->
+            </div> <!-- end of tags -->
+            <p class="box-allergen">Contains: Dairy, Nuts</p> <!-- allergen line -->
+            <div class="box-footer"> <!-- bottom row: price and button -->
+              <div> <!-- wrapper for price and minimum order -->
+                <span class="box-price">$12.00</span> <!-- price per box -->
+                <span class="box-unit">/ box</span> <!-- small unit text -->
+                <p class="box-moq">Min. order 20 boxes</p> <!-- minimum order quantity -->
+              </div> <!-- end of price wrapper -->
+              <a href="detail.html" class="btn btn-outline btn-small">View details</a> <!-- button to the Detail page -->
+            </div> <!-- end of footer row -->
+          </div> <!-- end of text part -->
+        </article> <!-- end of card 3 -->
+
+      </div> <!-- end of card grid -->
+    </section> <!-- end of featured section -->
+
+    <section class="audience container"> <!-- who is BrightPlate for section -->
+      <h2 class="section-title">Who is BrightPlate for?</h2> <!-- section heading -->
+      <div class="audience-grid"> <!-- grid of four small cards -->
+        <div class="audience-card"> <!-- card 1 -->
+          <span class="audience-icon">&#127970;</span> <!-- placeholder icon (office building emoji) -->
+          <div> <!-- wrapper for the two lines of text -->
+            <strong>Companies</strong> <!-- bold title -->
+            <p>Staff lunches &amp; wellness days</p> <!-- short description -->
+          </div> <!-- end of text wrapper -->
+        </div> <!-- end of card 1 -->
+        <div class="audience-card"> <!-- card 2 -->
+          <span class="audience-icon">&#128197;</span> <!-- placeholder icon (calendar emoji) -->
+          <div> <!-- wrapper for the two lines of text -->
+            <strong>Event organisers</strong> <!-- bold title -->
+            <p>Conferences &amp; workshops</p> <!-- short description -->
+          </div> <!-- end of text wrapper -->
+        </div> <!-- end of card 2 -->
+        <div class="audience-card"> <!-- card 3 -->
+          <span class="audience-icon">&#127976;</span> <!-- placeholder icon (hotel emoji) -->
+          <div> <!-- wrapper for the two lines of text -->
+            <strong>Hotels</strong> <!-- bold title -->
+            <p>Meetings &amp; seminars</p> <!-- short description -->
+          </div> <!-- end of text wrapper -->
+        </div> <!-- end of card 3 -->
+        <div class="audience-card"> <!-- card 4 -->
+          <span class="audience-icon">&#128101;</span> <!-- placeholder icon (people emoji) -->
+          <div> <!-- wrapper for the two lines of text -->
+            <strong>Individuals</strong> <!-- bold title -->
+            <p>Parties &amp; family occasions</p> <!-- short description -->
+          </div> <!-- end of text wrapper -->
+        </div> <!-- end of card 4 -->
+      </div> <!-- end of audience grid -->
+    </section> <!-- end of audience section -->
+
+    <section class="cta container"> <!-- call-to-action banner for caterers -->
+      <div class="cta-banner"> <!-- dark blue banner box -->
+        <div> <!-- wrapper for the banner text -->
+          <h2>Are you a caterer?</h2> <!-- banner heading -->
+          <p>List your Bento Boxes with full nutrition info, receive orders and get paid.</p> <!-- banner text -->
+        </div> <!-- end of banner text -->
+        <a href="#" class="btn btn-primary">Join as a Caterer</a> <!-- button (page not built yet) -->
+      </div> <!-- end of banner box -->
+    </section> <!-- end of call-to-action -->
+
+  </main> <!-- end of main content -->
+
+  <footer class="site-footer"> <!-- footer = the bottom bar of the website -->
+    <div class="footer-grid container"> <!-- grid with four columns -->
+      <div> <!-- column 1: brand -->
+        <img src="images/logo/BP-Full-White-web.png" alt="BrightPlate" class="footer-logo"> <!-- same white logo on the dark footer -->
+        <p>Healthy bulk catering, with nothing hidden.</p> <!-- tagline -->
+      </div> <!-- end of column 1 -->
+      <div> <!-- column 2: explore links -->
+        <h4>Explore</h4> <!-- column heading -->
+        <ul> <!-- list of links -->
+          <li><a href="browse.html">Browse Bento Boxes</a></li> <!-- link to Browse page -->
+          <li><a href="#">Compare</a></li> <!-- link (page not built yet) -->
+          <li><a href="#how-it-works">How It Works</a></li> <!-- link to the section on this page -->
+        </ul> <!-- end of list -->
+      </div> <!-- end of column 2 -->
+      <div> <!-- column 3: caterer links -->
+        <h4>Caterers</h4> <!-- column heading -->
+        <ul> <!-- list of links -->
+          <li><a href="#">Join as a Caterer</a></li> <!-- link (page not built yet) -->
+          <li><a href="#">Caterer Login</a></li> <!-- link (page not built yet) -->
+        </ul> <!-- end of list -->
+      </div> <!-- end of column 3 -->
+      <div> <!-- column 4: help links -->
+        <h4>Help</h4> <!-- column heading -->
+        <ul> <!-- list of links -->
+          <li><a href="#">About Us</a></li> <!-- link (page not built yet) -->
+          <li><a href="#">Contact</a></li> <!-- link (page not built yet) -->
+          <li><a href="#">Privacy &amp; Cookies</a></li> <!-- link (page not built yet) -->
+        </ul> <!-- end of list -->
+      </div> <!-- end of column 4 -->
+    </div> <!-- end of footer grid -->
+  </footer> <!-- end of footer -->
+
+</body> <!-- end of body -->
+</html> <!-- end of the HTML page -->

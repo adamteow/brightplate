@@ -1,0 +1,765 @@
+/* ============================================================ */ /* BrightPlate - style.css (Home, Browse and Detail pages)      */
+/* ============================================================ */ /* every line below has a comment explaining what it does       */
+
+/* ---------- 1. COLOURS AND SETTINGS (variables) ---------- */ /* variables let us change a colour in ONE place */
+:root { /* :root = the whole page; variables created here can be used anywhere */
+  --midnight: #14213D; /* Midnight Blue: main dark colour (header, footer, headings) */
+  --cream: #F8F4ED; /* Warm Cream: page background */
+  --cream-dark: #EFE8DA; /* a slightly darker cream for image backgrounds */
+  --coral: #FF6B5A; /* Vibrant Coral: main buttons */
+  --slate: #2E5B9A; /* Slate Blue: links and the halal tag */
+  --sage: #3A6B5C; /* Deep Sage: healthy tags and the nutrition card */
+  --charcoal: #1F2937; /* Charcoal: normal text */
+  --grey: #6B7280; /* grey: small and secondary text */
+  --line: #E4DCCB; /* light border colour */
+  --white: #FFFFFF; /* white: cards */
+  --radius: 12px; /* how round the corners of cards are */
+} /* end of variables */
+
+/* ---------- 2. RESET AND BASIC STYLES ---------- */ /* start every browser from the same point */
+* { /* * = every element on the page */
+  margin: 0; /* removes the browser's default outside space */
+  padding: 0; /* removes the browser's default inside space */
+  box-sizing: border-box; /* padding and border stay INSIDE the width we set */
+} /* end of reset */
+
+body { /* body = the whole visible page */
+  font-family: "Inter", Arial, sans-serif; /* Inter font; Arial is the backup if it does not load */
+  background-color: var(--cream); /* page background colour from the variable */
+  color: var(--charcoal); /* normal text colour */
+  line-height: 1.6; /* space between lines of text */
+} /* end of body */
+
+h1, h2, h3, h4 { /* all headings */
+  font-family: "Poppins", Arial, sans-serif; /* Poppins font for headings */
+  color: var(--midnight); /* dark blue headings */
+  line-height: 1.2; /* tighter line spacing for headings */
+} /* end of headings */
+
+h1 { font-size: 2.4rem; } /* biggest heading: 2.4 times the normal size */
+h2 { font-size: 1.6rem; } /* section headings */
+h3 { font-size: 1.1rem; } /* card headings */
+
+a { /* all links */
+  color: var(--slate); /* blue links */
+  text-decoration: none; /* removes the underline */
+} /* end of links */
+
+a:hover { /* when the mouse is over a link */
+  text-decoration: underline; /* show the underline again */
+} /* end of link hover */
+
+img { /* all pictures */
+  max-width: 100%; /* a picture can never be wider than its box */
+  display: block; /* removes the small gap under pictures */
+} /* end of pictures */
+
+ul { /* all lists */
+  list-style: none; /* removes the bullet points */
+} /* end of lists */
+
+.container { /* class used to centre the content */
+  max-width: 1200px; /* content is never wider than 1200px */
+  margin: 0 auto; /* auto left and right margins centre the box */
+  padding: 0 24px; /* space at the left and right edges */
+} /* end of container */
+
+/* ---------- 3. BUTTONS AND TAGS (used on every page) ---------- */ /* reusable small parts */
+.btn { /* base style shared by every button */
+  display: inline-block; /* lets links behave like buttons (size, padding) */
+  padding: 12px 24px; /* space inside the button: top/bottom 12px, left/right 24px */
+  border-radius: 8px; /* rounded corners */
+  font-family: "Inter", Arial, sans-serif; /* buttons do not copy the page font by default, so we set it */
+  font-size: 0.95rem; /* slightly smaller than normal text */
+  font-weight: 600; /* semi-bold text */
+  border: 2px solid transparent; /* invisible border so all buttons are the same size */
+  cursor: pointer; /* hand cursor when hovering */
+  text-align: center; /* centre the text */
+  white-space: nowrap; /* keeps the button text on one line */
+} /* end of .btn */
+
+.btn:hover { /* mouse over any button */
+  text-decoration: none; /* no underline on link buttons */
+  opacity: 0.9; /* slightly see-through to show a hover effect */
+} /* end of .btn:hover */
+
+.btn-primary { /* coral button for the main action */
+  background-color: var(--coral); /* coral background */
+  color: var(--midnight); /* dark text (white on coral is hard to read) */
+} /* end of .btn-primary */
+
+.btn-outline { /* button with only an outline */
+  background-color: var(--white); /* white background */
+  border-color: var(--midnight); /* dark blue outline */
+  color: var(--midnight); /* dark blue text */
+} /* end of .btn-outline */
+
+.btn-text { /* looks like plain text (used for Log in) */
+  background: none; /* no background */
+  color: var(--white); /* white text because it sits on the dark header */
+} /* end of .btn-text */
+
+.btn-small { /* smaller version of any button */
+  padding: 8px 16px; /* less space inside */
+  font-size: 0.85rem; /* smaller text */
+} /* end of .btn-small */
+
+.btn-block { /* button that fills the full width */
+  display: block; /* takes the whole line */
+  width: 100%; /* 100% of the parent's width */
+} /* end of .btn-block */
+
+.tag { /* small rounded label (Vegan, Fish, etc.) */
+  display: inline-block; /* sits in a line but can have padding */
+  padding: 2px 10px; /* space inside the label */
+  border-radius: 20px; /* very round = pill shape */
+  font-size: 0.75rem; /* small text */
+  font-weight: 600; /* semi-bold text */
+} /* end of .tag */
+
+.tag-green { background-color: #E4EFE9; color: var(--sage); } /* green tag: light green background, sage text */
+.tag-blue { background-color: #E3EBF6; color: var(--slate); } /* blue tag: used for Halal-certified */
+.tag-coral { background-color: #FFE4E0; color: #9A3324; } /* coral tag: used for allergens the box CONTAINS */
+.tag-grey { background-color: #ECEAE4; color: #4B5563; } /* grey tag: used for cuisine */
+
+.section-title { /* heading used for each section */
+  font-size: 1.8rem; /* a little bigger than a normal h2 */
+} /* end of .section-title */
+
+.section-sub { /* small grey text under a section heading */
+  color: var(--grey); /* grey colour */
+} /* end of .section-sub */
+
+.highlight { /* used on "nothing hidden" in the hero heading */
+  color: var(--coral); /* coral coloured words */
+} /* end of .highlight */
+
+.note { /* very small grey note */
+  font-size: 0.8rem; /* small text */
+  color: var(--grey); /* grey colour */
+} /* end of .note */
+
+/* ---------- 4. HEADER AND NAVIGATION ---------- */ /* the dark bar at the top of every page */
+.site-header { /* the header bar */
+  background-color: var(--midnight); /* dark blue background */
+  position: sticky; /* header stays at the top while scrolling */
+  top: 0; /* sticks to the very top edge */
+  z-index: 10; /* keeps the header above other content */
+} /* end of .site-header */
+
+.navbar { /* the row inside the header */
+  display: flex; /* flexbox puts the items in one row */
+  align-items: center; /* centres the items vertically */
+  justify-content: space-between; /* pushes logo left, buttons right */
+  height: 64px; /* height of the bar */
+} /* end of .navbar */
+
+.logo { /* logo link (picture + name) */
+  display: flex; /* picture and name side by side */
+  align-items: center; /* centred vertically */
+  gap: 10px; /* space between the picture and the name */
+  color: var(--white); /* white text */
+  font-family: "Poppins", Arial, sans-serif; /* Poppins font */
+  font-weight: 700; /* bold text */
+  font-size: 1.2rem; /* a little bigger text */
+} /* end of .logo */
+
+.logo:hover { text-decoration: none; } /* no underline on the logo when hovering */
+.logo img { height: 40px; width: auto; } /* logo is 40px tall; width follows automatically so it is never stretched */
+
+.nav-links { /* the list of menu links */
+  display: flex; /* links in one row */
+  gap: 28px; /* space between the links */
+} /* end of .nav-links */
+
+.nav-links a { /* each menu link */
+  color: #C9D0E0; /* soft light colour */
+  font-size: 0.95rem; /* normal-small text */
+  padding: 22px 0; /* makes the clickable area taller */
+  border-bottom: 3px solid transparent; /* invisible line under the link */
+} /* end of .nav-links a */
+
+.nav-links a:hover, .nav-links a.active { /* hover or current page */
+  color: var(--white); /* brighter text */
+  border-bottom-color: var(--coral); /* coral line appears under the link */
+  text-decoration: none; /* no underline */
+} /* end of hover and active */
+
+.nav-buttons { /* Log in and Register */
+  display: flex; /* in one row */
+  align-items: center; /* centred vertically */
+  gap: 8px; /* space between the buttons */
+} /* end of .nav-buttons */
+
+/* ---------- 5. HOME PAGE ---------- */ /* styles used mainly by index.html */
+.hero { /* the big welcome section */
+  display: flex; /* text and picture side by side */
+  align-items: center; /* centred vertically */
+  gap: 60px; /* space between text and picture */
+  padding-top: 64px; /* space above */
+  padding-bottom: 64px; /* space below */
+} /* end of .hero */
+
+.hero-text { flex: 1.15; } /* text column is a bit wider than the picture column */
+.hero-text h1 { font-size: 3rem; margin: 18px 0 20px; } /* bigger heading with space above and below */
+.hero-text p { color: var(--grey); font-size: 1.1rem; max-width: 540px; margin-bottom: 28px; } /* grey intro paragraph */
+
+.hero-search { /* search form in the hero */
+  display: flex; /* input and button in one row */
+  gap: 12px; /* space between them */
+  max-width: 600px; /* does not grow wider than 600px */
+} /* end of .hero-search */
+
+.hero-search input { /* the search box */
+  flex: 1; /* takes all the leftover width */
+  padding: 14px 16px; /* space inside the box */
+  border: 1px solid var(--line); /* thin light border */
+  border-radius: 8px; /* rounded corners */
+  font-size: 1rem; /* normal text size */
+} /* end of search box */
+
+.hero-checks { /* the three small selling points */
+  display: flex; /* in one row */
+  gap: 24px; /* space between points */
+  margin-top: 24px; /* space above the row */
+  font-size: 0.85rem; /* small text */
+  color: var(--grey); /* grey text */
+} /* end of .hero-checks */
+
+.hero-image { /* box around the hero picture */
+  flex: 0.85; /* a bit narrower than the text column */
+  background-color: var(--cream-dark); /* darker cream background */
+  border-radius: 28px; /* very round corners */
+  overflow: hidden; /* hides anything that goes outside the rounded corners */
+} /* end of .hero-image */
+
+.how-it-works { /* the How it works section */
+  background-color: var(--white); /* white band across the page */
+  border-top: 1px solid var(--line); /* thin line on top */
+  border-bottom: 1px solid var(--line); /* thin line at the bottom */
+  padding: 56px 0; /* space above and below */
+  text-align: center; /* centre the headings */
+} /* end of .how-it-works */
+
+.steps { /* row of three cards */
+  display: grid; /* grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 24px; /* space between the cards */
+  margin-top: 34px; /* space above the cards */
+  text-align: left; /* text inside cards is left-aligned */
+} /* end of .steps */
+
+.step-card { /* one step card */
+  background-color: var(--cream); /* cream background */
+  border: 1px solid var(--line); /* thin border */
+  border-radius: var(--radius); /* rounded corners from the variable */
+  padding: 28px; /* space inside the card */
+} /* end of .step-card */
+
+.step-icon { /* round icon at the top of the card */
+  width: 52px; /* width of the circle */
+  height: 52px; /* same height = a circle */
+  border-radius: 14px; /* rounded square */
+  background-color: var(--midnight); /* dark blue background */
+  display: flex; /* lets us centre the icon */
+  align-items: center; /* centred vertically */
+  justify-content: center; /* centred horizontally */
+  font-size: 1.4rem; /* size of the emoji icon */
+  color: var(--white); /* white so symbol icons show on the dark background */
+  margin-bottom: 16px; /* space below the icon */
+} /* end of .step-icon */
+
+.step-card p { color: var(--grey); font-size: 0.95rem; margin-top: 8px; } /* grey description text */
+
+.featured { padding-top: 56px; } /* space above the featured section */
+
+.section-header { /* heading on the left, button on the right */
+  display: flex; /* in one row */
+  justify-content: space-between; /* heading left, button right */
+  align-items: flex-end; /* line them up at the bottom */
+  margin-bottom: 24px; /* space below the row */
+} /* end of .section-header */
+
+.audience { padding-top: 56px; } /* space above the audience section */
+
+.audience-grid { /* four small cards */
+  display: grid; /* grid layout */
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 18px; /* space between the cards */
+  margin-top: 20px; /* space above the cards */
+} /* end of .audience-grid */
+
+.audience-card { /* one small card */
+  display: flex; /* icon and text side by side */
+  align-items: center; /* centred vertically */
+  gap: 16px; /* space between icon and text */
+  background-color: var(--white); /* white background */
+  border: 1px solid var(--line); /* thin border */
+  border-radius: var(--radius); /* rounded corners */
+  padding: 20px; /* space inside the card */
+} /* end of .audience-card */
+
+.audience-card p { color: var(--grey); font-size: 0.8rem; line-height: 1.3; } /* small grey description */
+
+.audience-icon { /* round icon */
+  width: 48px; /* width of the circle */
+  height: 48px; /* same height = a circle */
+  border-radius: 50%; /* 50% radius makes a perfect circle */
+  background-color: var(--sage); /* green background */
+  display: flex; /* lets us centre the icon */
+  align-items: center; /* centred vertically */
+  justify-content: center; /* centred horizontally */
+  flex-shrink: 0; /* circle never gets squashed */
+} /* end of .audience-icon */
+
+.cta { padding-top: 56px; padding-bottom: 56px; } /* space above and below the banner */
+
+.cta-banner { /* dark banner for caterers */
+  display: flex; /* text left, button right */
+  justify-content: space-between; /* pushes them to opposite sides */
+  align-items: center; /* centred vertically */
+  background-color: var(--midnight); /* dark blue background */
+  border-radius: 20px; /* rounded corners */
+  padding: 40px 48px; /* space inside the banner */
+} /* end of .cta-banner */
+
+.cta-banner h2 { color: var(--white); margin-bottom: 6px; } /* white heading with a little space below */
+.cta-banner p { color: #C9D0E0; } /* soft light text */
+
+/* ---------- 6. BOX CARDS (used on Home and Browse pages) ---------- */ /* one card per Bento Box */
+.box-grid { /* grid that holds the cards */
+  display: grid; /* grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 24px; /* space between the cards */
+} /* end of .box-grid */
+
+.box-card { /* one Bento Box card */
+  background-color: var(--white); /* white background */
+  border: 1px solid var(--line); /* thin border */
+  border-radius: var(--radius); /* rounded corners */
+  overflow: hidden; /* picture does not go outside the rounded corners */
+  display: flex; /* lets the body stretch to fill the card */
+  flex-direction: column; /* picture on top, text below */
+  transition: transform 0.2s, box-shadow 0.2s; /* smooth hover animation */
+} /* end of .box-card */
+
+.box-card:hover { /* mouse over a card */
+  transform: translateY(-4px); /* card lifts up a little */
+  box-shadow: 0 8px 20px rgba(20, 33, 61, 0.12); /* soft shadow appears */
+} /* end of card hover */
+
+.box-image { /* frame around the card picture */
+  position: relative; /* lets the badge and tick box sit on top of the picture */
+  background-color: var(--cream-dark); /* background while the picture loads */
+} /* end of .box-image */
+
+.box-image img { /* the card picture */
+  width: 100%; /* fills the card width */
+  height: 190px; /* fixed height so all cards match */
+  object-fit: cover; /* crops the picture instead of stretching it */
+} /* end of card picture */
+
+.kcal-badge { /* green calorie badge */
+  position: absolute; /* placed on top of the picture */
+  top: 12px; /* 12px from the top edge */
+  right: 12px; /* 12px from the right edge */
+  background-color: var(--sage); /* green background */
+  color: var(--white); /* white text */
+  font-size: 0.75rem; /* small text */
+  font-weight: 600; /* semi-bold text */
+  padding: 3px 10px; /* space inside the badge */
+  border-radius: 20px; /* pill shape */
+} /* end of .kcal-badge */
+
+.box-body { /* text part of the card */
+  padding: 18px; /* space inside */
+  display: flex; /* lets us push the footer to the bottom */
+  flex-direction: column; /* items stacked from top to bottom */
+  flex: 1; /* body fills the rest of the card height */
+} /* end of .box-body */
+
+.box-caterer { font-size: 0.8rem; color: var(--grey); } /* small grey caterer name */
+.box-name { margin: 4px 0 10px; } /* space above and below the box name */
+.box-name a { color: var(--midnight); } /* box name is dark blue, not link blue */
+
+.box-tags { /* row of tags */
+  display: flex; /* in one row */
+  flex-wrap: wrap; /* goes to the next line if there is no room */
+  gap: 6px; /* space between the tags */
+} /* end of .box-tags */
+
+.box-allergen { /* "Contains: ..." line */
+  font-size: 0.8rem; /* small text */
+  font-weight: 500; /* medium weight */
+  color: #9A3324; /* dark coral: a warning colour */
+  margin-top: 10px; /* space above */
+} /* end of .box-allergen */
+
+.box-allergen-none { color: var(--sage); } /* green when there are no allergens */
+
+.box-footer { /* price on the left, button on the right */
+  display: flex; /* in one row */
+  justify-content: space-between; /* pushes them to opposite sides */
+  align-items: flex-end; /* line them up at the bottom */
+  margin-top: auto; /* pushes the footer to the bottom of the card */
+  padding-top: 16px; /* space above */
+} /* end of .box-footer */
+
+.box-price { /* price number */
+  font-family: "Poppins", Arial, sans-serif; /* Poppins font */
+  font-size: 1.4rem; /* big number */
+  font-weight: 700; /* bold */
+  color: var(--midnight); /* dark blue */
+} /* end of .box-price */
+
+.box-unit { font-size: 0.8rem; color: var(--grey); } /* small "/ box" text */
+.box-moq { font-size: 0.8rem; color: var(--grey); } /* small minimum-order text */
+
+/* ---------- 7. BROWSE PAGE ---------- */ /* styles used mainly by browse.html */
+.breadcrumb { /* "Home / Browse" line */
+  font-size: 0.85rem; /* small text */
+  color: var(--grey); /* grey text */
+  padding: 20px 0 12px; /* space above and below */
+} /* end of .breadcrumb */
+
+.browse-top { /* title on the left, tools on the right */
+  display: flex; /* in one row */
+  justify-content: space-between; /* pushes them to opposite sides */
+  align-items: flex-end; /* line them up at the bottom */
+  margin-bottom: 22px; /* space below */
+} /* end of .browse-top */
+
+.browse-tools { /* search box and sort menu */
+  display: flex; /* in one row */
+  gap: 12px; /* space between them */
+} /* end of .browse-tools */
+
+.browse-tools input, .browse-tools select, .filters select, .form-field input, .form-field select { /* all inputs and menus share one look */
+  padding: 10px 14px; /* space inside */
+  border: 1px solid var(--line); /* thin border */
+  border-radius: 8px; /* rounded corners */
+  background-color: var(--white); /* white background */
+  font-family: "Inter", Arial, sans-serif; /* use the page font */
+  font-size: 0.9rem; /* normal-small text */
+} /* end of shared input style */
+
+.browse-tools input { width: 220px; } /* search box width */
+.browse-tools select { width: 250px; } /* sort menu width (wide enough for the text) */
+
+.browse-layout { /* two columns */
+  display: flex; /* side by side */
+  align-items: flex-start; /* both columns start at the top */
+  gap: 28px; /* space between columns */
+  padding-bottom: 56px; /* space below the layout */
+} /* end of .browse-layout */
+
+.filters { /* the filter panel */
+  width: 290px; /* fixed width */
+  flex-shrink: 0; /* panel never gets squashed */
+  background-color: var(--white); /* white background */
+  border: 1px solid var(--line); /* thin border */
+  border-radius: var(--radius); /* rounded corners */
+  padding: 24px; /* space inside */
+} /* end of .filters */
+
+.filters-header { /* "Filters" and "Clear all" */
+  display: flex; /* in one row */
+  justify-content: space-between; /* opposite sides */
+  align-items: center; /* centred vertically */
+  margin-bottom: 14px; /* space below */
+} /* end of .filters-header */
+
+.link-button { /* a button that looks like a link */
+  background: none; /* no background */
+  border: none; /* no border */
+  color: var(--slate); /* blue text */
+  font-weight: 600; /* semi-bold */
+  font-size: 0.85rem; /* small text */
+  cursor: pointer; /* hand cursor */
+} /* end of .link-button */
+
+.filter-group { /* one group of filters */
+  border: none; /* removes the default fieldset border */
+  border-top: 1px solid var(--line); /* thin line above each group */
+  padding: 16px 0 6px; /* space inside the group */
+} /* end of .filter-group */
+
+.filter-group legend { /* title of each group */
+  font-weight: 600; /* semi-bold */
+  color: var(--midnight); /* dark blue */
+  font-size: 0.9rem; /* normal-small text */
+  padding-right: 8px; /* small space so the line does not touch the text */
+} /* end of legend */
+
+.filter-group label { /* each checkbox row */
+  display: block; /* one per line */
+  font-size: 0.9rem; /* normal-small text */
+  margin-bottom: 8px; /* space between rows */
+  cursor: pointer; /* hand cursor */
+} /* end of checkbox rows */
+
+.filter-group input[type="checkbox"] { /* the tick boxes */
+  accent-color: var(--sage); /* green tick colour */
+  margin-right: 8px; /* space between box and text */
+} /* end of tick boxes */
+
+.filter-note { font-size: 0.8rem; color: var(--grey); margin-bottom: 8px; } /* small grey explanation line */
+
+.range-row { /* two number boxes with "to" between */
+  display: flex; /* in one row */
+  align-items: center; /* centred vertically */
+  gap: 10px; /* space between items */
+} /* end of .range-row */
+
+.range-row input { /* each number box */
+  width: 100%; /* shares the row equally */
+  padding: 8px 10px; /* space inside */
+  border: 1px solid var(--line); /* thin border */
+  border-radius: 8px; /* rounded corners */
+} /* end of number boxes */
+
+.filters select { width: 100%; margin-bottom: 8px; } /* caterer menu fills the panel width */
+.filters .btn-block { margin-top: 18px; } /* space above the Apply button */
+
+.results { flex: 1; } /* results column takes all the leftover width */
+
+.compare-bar { /* dark bar above the boxes */
+  display: flex; /* message left, button right */
+  justify-content: space-between; /* opposite sides */
+  align-items: center; /* centred vertically */
+  background-color: var(--midnight); /* dark blue background */
+  color: var(--white); /* white text */
+  border-radius: var(--radius); /* rounded corners */
+  padding: 16px 24px; /* space inside */
+  margin-bottom: 22px; /* space below the bar */
+} /* end of .compare-bar */
+
+.compare-bar span { color: #B8C0D2; font-weight: 400; } /* "(you can compare up to 3)" in softer colour */
+
+.compare-check { /* "Compare" tick box on the picture */
+  position: absolute; /* placed on top of the picture */
+  top: 12px; /* 12px from the top edge */
+  left: 12px; /* 12px from the left edge */
+  background-color: var(--white); /* white background */
+  font-size: 0.75rem; /* small text */
+  font-weight: 600; /* semi-bold */
+  padding: 3px 10px; /* space inside */
+  border-radius: 6px; /* rounded corners */
+  cursor: pointer; /* hand cursor */
+} /* end of .compare-check */
+
+.compare-check input { accent-color: var(--sage); margin-right: 4px; } /* green tick with a small gap */
+
+.pagination { /* page numbers */
+  display: flex; /* in one row */
+  justify-content: center; /* centred on the page */
+  gap: 8px; /* space between numbers */
+  margin-top: 30px; /* space above */
+} /* end of .pagination */
+
+.pagination a { /* each page number */
+  padding: 8px 14px; /* space inside */
+  border: 1px solid var(--line); /* thin border */
+  border-radius: 8px; /* rounded corners */
+  background-color: var(--white); /* white background */
+  color: var(--midnight); /* dark text */
+} /* end of page numbers */
+
+.pagination a.current { /* the page we are on */
+  background-color: var(--midnight); /* dark background */
+  color: var(--white); /* white text */
+} /* end of current page */
+
+/* ---------- 8. DETAIL PAGE ---------- */ /* styles used mainly by detail.html */
+.detail-top { /* pictures left, information right */
+  display: flex; /* side by side */
+  gap: 44px; /* space between the columns */
+  margin-top: 10px; /* small space above */
+} /* end of .detail-top */
+
+.detail-gallery { width: 560px; flex-shrink: 0; } /* left column has a fixed width */
+
+.main-image { /* the big picture */
+  width: 100%; /* fills the column */
+  height: 430px; /* fixed height */
+  object-fit: cover; /* crops instead of stretching */
+  border-radius: 20px; /* rounded corners */
+} /* end of .main-image */
+
+.thumbs { /* row of small pictures */
+  display: flex; /* in one row */
+  gap: 14px; /* space between thumbnails */
+  margin-top: 14px; /* space above the row */
+} /* end of .thumbs */
+
+.thumb { /* each small picture */
+  width: 128px; /* width */
+  height: 96px; /* height */
+  object-fit: cover; /* crops instead of stretching */
+  border-radius: 10px; /* rounded corners */
+  border: 2px solid transparent; /* invisible border (becomes coral when selected) */
+  cursor: pointer; /* hand cursor */
+} /* end of .thumb */
+
+.thumb.selected { border-color: var(--coral); } /* coral border on the selected thumbnail */
+
+.detail-info { flex: 1; } /* right column takes the leftover width */
+.detail-info h1 { margin: 12px 0 8px; font-size: 2.2rem; } /* space around the box name */
+.detail-caterer { color: var(--grey); margin-bottom: 14px; } /* grey "by ..." line */
+.detail-description { color: var(--grey); max-width: 560px; margin-bottom: 20px; } /* grey description text */
+
+.detail-price { /* big price */
+  font-family: "Poppins", Arial, sans-serif; /* Poppins font */
+  font-size: 2.2rem; /* very big number */
+  font-weight: 600; /* semi-bold */
+  color: var(--midnight); /* dark blue */
+} /* end of .detail-price */
+
+.detail-price span { font-size: 0.95rem; font-weight: 400; color: var(--grey); font-family: "Inter", Arial, sans-serif; } /* small "per box" text */
+
+.order-box { /* white box around the order form */
+  background-color: var(--white); /* white background */
+  border: 1px solid var(--line); /* thin border */
+  border-radius: var(--radius); /* rounded corners */
+  padding: 22px; /* space inside */
+  margin-top: 20px; /* space above */
+} /* end of .order-box */
+
+.order-row { display: flex; gap: 16px; } /* two fields side by side */
+.form-field { flex: 1; } /* each field shares the row equally */
+.form-field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--midnight); margin-bottom: 4px; } /* label above the input */
+.form-field input { width: 100%; } /* inputs fill their field */
+
+.order-subtotal { /* subtotal line */
+  display: flex; /* text left, number right */
+  justify-content: space-between; /* opposite sides */
+  align-items: center; /* centred vertically */
+  margin: 18px 0 16px; /* space above and below */
+  padding-top: 16px; /* space inside, above the text */
+  border-top: 1px dashed var(--line); /* dashed line above */
+  color: var(--grey); /* grey label text */
+} /* end of .order-subtotal */
+
+.order-subtotal strong { font-family: "Poppins", Arial, sans-serif; font-size: 1.3rem; color: var(--midnight); } /* big dark subtotal number */
+
+.order-buttons { display: flex; gap: 12px; } /* two buttons side by side */
+.order-buttons .btn:first-child { flex: 1.4; } /* Add to Cart is a bit wider */
+.order-buttons .btn:last-child { flex: 1; } /* Compare is a bit narrower */
+
+.detail-bottom { /* nutrition left, other cards right */
+  display: flex; /* side by side */
+  align-items: flex-start; /* both columns start at the top */
+  gap: 28px; /* space between columns */
+  margin-top: 44px; /* space above */
+  padding-bottom: 56px; /* space below */
+} /* end of .detail-bottom */
+
+.nutrition-card { /* green nutrition card */
+  width: 430px; /* fixed width */
+  flex-shrink: 0; /* never squashed */
+  background-color: #E4EFE9; /* light green background */
+  border: 1px solid #CFE0D7; /* light green border */
+  border-radius: var(--radius); /* rounded corners */
+  padding: 26px; /* space inside */
+} /* end of .nutrition-card */
+
+.nutrition-card h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sage); } /* small capital heading */
+
+.nutrition-kcal { font-family: "Poppins", Arial, sans-serif; font-size: 3rem; font-weight: 700; color: var(--sage); margin-bottom: 8px; } /* very big calorie number */
+.nutrition-kcal span { font-size: 1.1rem; } /* smaller "kcal" word */
+
+.nutri-row { display: flex; justify-content: space-between; font-size: 0.9rem; margin-top: 12px; } /* name left, amount right */
+
+.nutrition-card progress { /* the bars */
+  width: 100%; /* full width */
+  height: 8px; /* thin bar */
+  accent-color: var(--sage); /* green bar colour */
+} /* end of bars */
+
+.nutrition-card .note { margin-top: 14px; } /* space above the "Sample data" note */
+
+.detail-right { /* right column */
+  flex: 1; /* takes the leftover width */
+  display: flex; /* stack the cards */
+  flex-direction: column; /* from top to bottom */
+  gap: 22px; /* space between cards */
+} /* end of .detail-right */
+
+.info-card, .caterer-card { /* white cards */
+  background-color: var(--white); /* white background */
+  border: 1px solid var(--line); /* thin border */
+  border-radius: var(--radius); /* rounded corners */
+  padding: 24px; /* space inside */
+} /* end of white cards */
+
+.info-card h2 { font-size: 1.2rem; margin-bottom: 12px; } /* card heading */
+
+.info-list { /* Contains / Does not contain / Dietary information */
+  display: grid; /* grid layout */
+  grid-template-columns: 150px 1fr; /* label column 150px, value column fills the rest */
+  gap: 12px 10px; /* row gap 12px, column gap 10px */
+  align-items: center; /* centred vertically */
+  margin-top: 18px; /* space above */
+  padding-top: 16px; /* space inside, above the first row */
+  border-top: 1px solid var(--line); /* thin line above */
+} /* end of .info-list */
+
+.info-list dt { font-weight: 600; font-size: 0.85rem; color: var(--midnight); } /* label text */
+.info-list dd { display: flex; flex-wrap: wrap; gap: 6px; } /* tags in a wrapping row */
+
+.caterer-card { /* caterer card layout */
+  display: flex; /* avatar, text and button in one row */
+  align-items: center; /* centred vertically */
+  gap: 18px; /* space between items */
+} /* end of caterer card layout */
+
+.caterer-card > div:nth-child(2) { flex: 1; } /* the text column pushes the button to the right */
+
+.avatar { /* round placeholder for a logo */
+  width: 58px; /* width */
+  height: 58px; /* same height = a circle */
+  border-radius: 50%; /* makes it a circle */
+  background-color: var(--sage); /* green background */
+  color: var(--white); /* white initials */
+  font-weight: 700; /* bold */
+  display: flex; /* lets us centre the initials */
+  align-items: center; /* centred vertically */
+  justify-content: center; /* centred horizontally */
+} /* end of .avatar */
+
+.notice { /* yellow notice box */
+  background-color: #FFF8E1; /* light yellow background */
+  border: 1px solid #F0E0A0; /* yellow border */
+  border-radius: 8px; /* rounded corners */
+  padding: 10px 14px; /* space inside */
+  font-size: 0.8rem; /* small text */
+  color: #6B5B00; /* dark yellow text */
+} /* end of .notice */
+
+/* ---------- 9. FOOTER ---------- */ /* the dark bar at the bottom of every page */
+.site-footer { /* the footer bar */
+  background-color: var(--midnight); /* dark blue background */
+  color: #C9D0E0; /* soft light text */
+  padding: 40px 0; /* space above and below */
+} /* end of .site-footer */
+
+.footer-grid { /* four columns */
+  display: grid; /* grid layout */
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* first column twice as wide as the others */
+  gap: 24px; /* space between columns */
+} /* end of .footer-grid */
+
+.footer-logo { height: 44px; width: auto; margin-bottom: 12px; } /* logo in the footer: 44px tall, space below it */
+.site-footer h4 { color: var(--white); font-size: 0.9rem; margin-bottom: 10px; } /* white column headings */
+.site-footer li { margin-bottom: 6px; } /* space between links */
+.site-footer a { color: #C9D0E0; font-size: 0.9rem; } /* soft light links */
+.site-footer p { font-size: 0.9rem; } /* footer paragraph text */
+
+/* ---------- 10. SMALL SCREENS (phones and tablets) ---------- */ /* simple responsive rules */
+@media (max-width: 900px) { /* everything inside applies only when the screen is 900px wide or less */
+  .nav-links { display: none; } /* hides the menu links to save space (a menu button can be added later) */
+  .hero, .detail-top, .detail-bottom, .browse-layout { flex-direction: column; } /* side-by-side columns become stacked */
+  .steps, .audience-grid, .box-grid, .footer-grid { grid-template-columns: 1fr; } /* grids become a single column */
+  .detail-gallery, .nutrition-card, .filters { width: 100%; } /* fixed widths become full width */
+  .browse-top, .section-header, .cta-banner { flex-direction: column; align-items: flex-start; gap: 16px; } /* rows become stacked */
+} /* end of small-screen rules */

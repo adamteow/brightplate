@@ -1,0 +1,336 @@
+<!DOCTYPE html> <!-- tells the browser this file is an HTML5 page -->
+<html lang="en"> <!-- root element of the page; lang="en" says the page is in English -->
+<head> <!-- head holds information ABOUT the page (not shown on the page) -->
+  <meta charset="UTF-8"> <!-- lets the page show all characters correctly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- makes the page fit phone screens -->
+  <title>Browse Bento Boxes | BrightPlate</title> <!-- text shown on the browser tab -->
+  <link rel="icon" href="images/favicon/favicon.ico" sizes="any"> <!-- main icon shown on the browser tab -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png"> <!-- 32px icon for sharper tabs -->
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png"> <!-- 16px icon for small tabs -->
+  <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png"> <!-- icon used when saved to an iPhone or iPad home screen -->
+  <link rel="manifest" href="images/favicon/site.webmanifest"> <!-- app name and icons for Android phones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- speeds up loading of the Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet"> <!-- loads the Poppins and Inter fonts (needs internet) -->
+  <link rel="stylesheet" href="css/style.css"> <!-- connects our CSS file to this page -->
+</head> <!-- end of head -->
+<body> <!-- body holds everything that is shown on the page -->
+
+  <header class="site-header"> <!-- header = the top bar of the website (same as the Home page) -->
+    <nav class="navbar container"> <!-- nav = the navigation menu; container keeps the content centred -->
+      <a href="index.html" class="logo"> <!-- clicking the logo goes back to the Home page -->
+        <img src="images/logo/BP-Full-White-web.png" alt="BrightPlate" height="40"> <!-- final white logo (icon + name) so it shows on the dark header -->
+      </a> <!-- end of logo link -->
+      <ul class="nav-links"> <!-- unordered list holding the menu links -->
+        <li><a href="index.html">Home</a></li> <!-- link to the Home page -->
+        <li><a href="browse.html" class="active">Browse Bento Boxes</a></li> <!-- "active" highlights the current page -->
+        <li><a href="index.html#how-it-works">How It Works</a></li> <!-- jumps to the How It Works section on the Home page -->
+        <li><a href="#">Compare</a></li> <!-- Compare page (not built yet, so # for now) -->
+      </ul> <!-- end of menu list -->
+      <div class="nav-buttons"> <!-- group for the Log in and Register buttons -->
+        <a href="#" class="btn btn-text">Log in</a> <!-- Log in button (page not built yet) -->
+        <a href="#" class="btn btn-primary btn-small">Register</a> <!-- Register button (page not built yet) -->
+      </div> <!-- end of button group -->
+    </nav> <!-- end of navigation -->
+  </header> <!-- end of header -->
+
+  <main class="container"> <!-- main content; container keeps it centred -->
+
+    <p class="breadcrumb"><a href="index.html">Home</a> / Browse Bento Boxes</p> <!-- breadcrumb shows where the visitor is -->
+
+    <div class="browse-top"> <!-- row with the page title on the left and the tools on the right -->
+      <div> <!-- wrapper for the title and the small text -->
+        <h1>Browse Bento Boxes</h1> <!-- page heading -->
+        <p class="section-sub">Showing 6 of 24 Bento Boxes.</p> <!-- shows how many results are displayed -->
+      </div> <!-- end of title wrapper -->
+      <div class="browse-tools"> <!-- search box and sort menu -->
+        <input type="search" placeholder="Search by name" aria-label="Search by name"> <!-- search box; aria-label helps screen readers -->
+        <select aria-label="Sort by"> <!-- drop-down menu for sorting -->
+          <option>Sort: Calories (low-high)</option> <!-- sort choice 1 -->
+          <option>Sort: Price (low-high)</option> <!-- sort choice 2 -->
+          <option>Sort: Name (A-Z)</option> <!-- sort choice 3 -->
+        </select> <!-- end of drop-down -->
+      </div> <!-- end of tools -->
+    </div> <!-- end of top row -->
+
+    <div class="browse-layout"> <!-- two columns: filters on the left, results on the right -->
+
+      <aside class="filters"> <!-- aside = side content; this is the filter panel -->
+        <form action="browse.html" method="get"> <!-- one form holds all the filters -->
+          <div class="filters-header"> <!-- row with the title and the Clear all link -->
+            <h2>Filters</h2> <!-- filter panel heading -->
+            <button type="reset" class="link-button">Clear all</button> <!-- reset button clears every filter -->
+          </div> <!-- end of filter header -->
+
+          <fieldset class="filter-group"> <!-- fieldset groups related form controls -->
+            <legend>Calories per box</legend> <!-- title of the group -->
+            <div class="range-row"> <!-- row with two number boxes -->
+              <input type="number" name="kcal-min" value="300" min="0" aria-label="Minimum calories"> <!-- lowest calories -->
+              <span>to</span> <!-- word between the boxes -->
+              <input type="number" name="kcal-max" value="700" min="0" aria-label="Maximum calories"> <!-- highest calories -->
+            </div> <!-- end of row -->
+          </fieldset> <!-- end of calories group -->
+
+          <fieldset class="filter-group"> <!-- price group -->
+            <legend>Price per box ($)</legend> <!-- title of the group -->
+            <div class="range-row"> <!-- row with two number boxes -->
+              <input type="number" name="price-min" value="8" min="0" aria-label="Minimum price"> <!-- lowest price -->
+              <span>to</span> <!-- word between the boxes -->
+              <input type="number" name="price-max" value="18" min="0" aria-label="Maximum price"> <!-- highest price -->
+            </div> <!-- end of row -->
+          </fieldset> <!-- end of price group -->
+
+          <fieldset class="filter-group"> <!-- dietary group -->
+            <legend>Dietary</legend> <!-- title of the group -->
+            <label><input type="checkbox" name="diet" value="halal" checked> Halal-certified</label> <!-- ticked by default -->
+            <label><input type="checkbox" name="diet" value="vegetarian"> Vegetarian</label> <!-- checkbox -->
+            <label><input type="checkbox" name="diet" value="vegan"> Vegan</label> <!-- checkbox -->
+            <label><input type="checkbox" name="diet" value="low-carb"> Low-carb</label> <!-- checkbox -->
+            <label><input type="checkbox" name="diet" value="low-gi"> Low-GI</label> <!-- checkbox -->
+            <label><input type="checkbox" name="diet" value="high-protein"> High-Protein</label> <!-- checkbox -->
+          </fieldset> <!-- end of dietary group -->
+
+          <fieldset class="filter-group"> <!-- allergen group -->
+            <legend>Allergens</legend> <!-- title of the group -->
+            <p class="filter-note">Hide boxes that contain:</p> <!-- small explanation -->
+            <label><input type="checkbox" name="allergen" value="nuts"> Nuts / Peanuts / Tree nuts</label> <!-- checkbox -->
+            <label><input type="checkbox" name="allergen" value="shellfish" checked> Shellfish / Crustaceans</label> <!-- ticked by default -->
+            <label><input type="checkbox" name="allergen" value="fish"> Fish</label> <!-- checkbox -->
+            <label><input type="checkbox" name="allergen" value="dairy"> Dairy / Milk</label> <!-- checkbox -->
+            <label><input type="checkbox" name="allergen" value="eggs"> Eggs</label> <!-- checkbox -->
+            <label><input type="checkbox" name="allergen" value="soy"> Soy</label> <!-- checkbox -->
+            <label><input type="checkbox" name="allergen" value="gluten"> Gluten / Wheat</label> <!-- checkbox -->
+          </fieldset> <!-- end of allergen group -->
+
+          <fieldset class="filter-group"> <!-- cuisine group -->
+            <legend>Cuisine</legend> <!-- title of the group -->
+            <label><input type="checkbox" name="cuisine" value="chinese"> Chinese</label> <!-- checkbox -->
+            <label><input type="checkbox" name="cuisine" value="malaysian"> Malaysian</label> <!-- checkbox -->
+            <label><input type="checkbox" name="cuisine" value="indonesian"> Indonesian</label> <!-- checkbox -->
+            <label><input type="checkbox" name="cuisine" value="indian"> Indian</label> <!-- checkbox -->
+            <label><input type="checkbox" name="cuisine" value="western"> Western</label> <!-- checkbox -->
+            <label><input type="checkbox" name="cuisine" value="salads"> Salads &amp; bowls</label> <!-- checkbox -->
+          </fieldset> <!-- end of cuisine group -->
+
+          <fieldset class="filter-group"> <!-- caterer group -->
+            <legend>Caterer</legend> <!-- title of the group -->
+            <select name="caterer" aria-label="Caterer"> <!-- drop-down menu -->
+              <option>All caterers</option> <!-- default choice -->
+              <option>Lean Plate Catering</option> <!-- caterer 1 -->
+              <option>Daily Bowl Kitchen</option> <!-- caterer 2 -->
+              <option>Heritage Spice Kitchen</option> <!-- caterer 3 -->
+              <option>Fresh Tiers Catering</option> <!-- caterer 4 -->
+            </select> <!-- end of drop-down -->
+          </fieldset> <!-- end of caterer group -->
+
+          <button type="submit" class="btn btn-primary btn-block">Apply filters</button> <!-- button that sends the filters -->
+        </form> <!-- end of filter form -->
+      </aside> <!-- end of filter panel -->
+
+      <section class="results"> <!-- right column: compare bar and the boxes -->
+
+        <div class="compare-bar"> <!-- dark bar that appears above the boxes -->
+          <p>&#9878; <strong>2 boxes selected</strong> <span>(you can compare up to 3)</span></p> <!-- message; &#9878; is a scales symbol -->
+          <a href="#" class="btn btn-primary btn-small">Compare now &rarr;</a> <!-- compare button (page not built yet) -->
+        </div> <!-- end of compare bar -->
+
+        <div class="box-grid"> <!-- grid that lays the cards out in 3 columns -->
+
+          <article class="box-card"> <!-- card for Bento Box 1 -->
+            <div class="box-image"> <!-- frame for the picture, compare tick and calorie badge -->
+              <img src="images/bento-1.svg" alt="Grilled Fish and Brown Rice Box"> <!-- placeholder picture -->
+              <label class="compare-check"><input type="checkbox" checked> Compare</label> <!-- tick box to add to compare -->
+              <span class="kcal-badge">480 kcal</span> <!-- calorie badge -->
+            </div> <!-- end of picture frame -->
+            <div class="box-body"> <!-- text part of the card -->
+              <p class="box-caterer">Lean Plate Catering</p> <!-- caterer name -->
+              <h3 class="box-name"><a href="detail.html">Grilled Fish &amp; Brown Rice Box</a></h3> <!-- box name -->
+              <div class="box-tags"> <!-- row of dietary tags -->
+                <span class="tag tag-green">High-Protein</span> <!-- tag 1 -->
+                <span class="tag tag-green">Low-GI</span> <!-- tag 2 -->
+                <span class="tag tag-blue">Halal-certified</span> <!-- tag 3 -->
+              </div> <!-- end of tags -->
+              <p class="box-allergen">Contains: Fish</p> <!-- allergen line -->
+              <div class="box-footer"> <!-- bottom row: price and button -->
+                <div> <!-- wrapper for price and minimum order -->
+                  <span class="box-price">$13.50</span> <!-- price per box -->
+                  <span class="box-unit">/ box</span> <!-- small unit text -->
+                  <p class="box-moq">Min. order 20 boxes</p> <!-- minimum order quantity -->
+                </div> <!-- end of price wrapper -->
+                <a href="detail.html" class="btn btn-outline btn-small">View details</a> <!-- button to the Detail page -->
+              </div> <!-- end of footer row -->
+            </div> <!-- end of text part -->
+          </article> <!-- end of card 1 -->
+
+          <article class="box-card"> <!-- card for Bento Box 2 -->
+            <div class="box-image"> <!-- frame for the picture, compare tick and calorie badge -->
+              <img src="images/bento-2.svg" alt="Chicken Rice Lunch Box (Lite)"> <!-- placeholder picture -->
+              <label class="compare-check"><input type="checkbox"> Compare</label> <!-- tick box to add to compare -->
+              <span class="kcal-badge">520 kcal</span> <!-- calorie badge -->
+            </div> <!-- end of picture frame -->
+            <div class="box-body"> <!-- text part of the card -->
+              <p class="box-caterer">Daily Bowl Kitchen</p> <!-- caterer name -->
+              <h3 class="box-name"><a href="detail.html">Chicken Rice Lunch Box (Lite)</a></h3> <!-- box name -->
+              <div class="box-tags"> <!-- row of dietary tags -->
+                <span class="tag tag-green">High-Protein</span> <!-- tag 1 -->
+                <span class="tag tag-blue">Halal-certified</span> <!-- tag 2 -->
+              </div> <!-- end of tags -->
+              <p class="box-allergen">Contains: Soy</p> <!-- allergen line -->
+              <div class="box-footer"> <!-- bottom row: price and button -->
+                <div> <!-- wrapper for price and minimum order -->
+                  <span class="box-price">$11.00</span> <!-- price per box -->
+                  <span class="box-unit">/ box</span> <!-- small unit text -->
+                  <p class="box-moq">Min. order 30 boxes</p> <!-- minimum order quantity -->
+                </div> <!-- end of price wrapper -->
+                <a href="detail.html" class="btn btn-outline btn-small">View details</a> <!-- button to the Detail page -->
+              </div> <!-- end of footer row -->
+            </div> <!-- end of text part -->
+          </article> <!-- end of card 2 -->
+
+          <article class="box-card"> <!-- card for Bento Box 3 -->
+            <div class="box-image"> <!-- frame for the picture, compare tick and calorie badge -->
+              <img src="images/bento-3.svg" alt="Vegetarian Briyani Box"> <!-- placeholder picture -->
+              <label class="compare-check"><input type="checkbox"> Compare</label> <!-- tick box to add to compare -->
+              <span class="kcal-badge">560 kcal</span> <!-- calorie badge -->
+            </div> <!-- end of picture frame -->
+            <div class="box-body"> <!-- text part of the card -->
+              <p class="box-caterer">Heritage Spice Kitchen</p> <!-- caterer name -->
+              <h3 class="box-name"><a href="detail.html">Vegetarian Briyani Box</a></h3> <!-- box name -->
+              <div class="box-tags"> <!-- row of dietary tags -->
+                <span class="tag tag-green">Vegetarian</span> <!-- tag 1 -->
+                <span class="tag tag-blue">Halal-certified</span> <!-- tag 2 -->
+              </div> <!-- end of tags -->
+              <p class="box-allergen">Contains: Dairy, Nuts</p> <!-- allergen line -->
+              <div class="box-footer"> <!-- bottom row: price and button -->
+                <div> <!-- wrapper for price and minimum order -->
+                  <span class="box-price">$12.00</span> <!-- price per box -->
+                  <span class="box-unit">/ box</span> <!-- small unit text -->
+                  <p class="box-moq">Min. order 20 boxes</p> <!-- minimum order quantity -->
+                </div> <!-- end of price wrapper -->
+                <a href="detail.html" class="btn btn-outline btn-small">View details</a> <!-- button to the Detail page -->
+              </div> <!-- end of footer row -->
+            </div> <!-- end of text part -->
+          </article> <!-- end of card 3 -->
+
+          <article class="box-card"> <!-- card for Bento Box 4 -->
+            <div class="box-image"> <!-- frame for the picture, compare tick and calorie badge -->
+              <img src="images/bento-4.svg" alt="Steamed Chicken and Greens Bento"> <!-- placeholder picture -->
+              <label class="compare-check"><input type="checkbox" checked> Compare</label> <!-- tick box (ticked by default) -->
+              <span class="kcal-badge">420 kcal</span> <!-- calorie badge -->
+            </div> <!-- end of picture frame -->
+            <div class="box-body"> <!-- text part of the card -->
+              <p class="box-caterer">Lean Plate Catering</p> <!-- caterer name -->
+              <h3 class="box-name"><a href="detail.html">Steamed Chicken &amp; Greens Bento</a></h3> <!-- box name -->
+              <div class="box-tags"> <!-- row of dietary tags -->
+                <span class="tag tag-green">Low-carb</span> <!-- tag 1 -->
+                <span class="tag tag-green">High-Protein</span> <!-- tag 2 -->
+                <span class="tag tag-blue">Halal-certified</span> <!-- tag 3 -->
+              </div> <!-- end of tags -->
+              <p class="box-allergen">Contains: Soy</p> <!-- allergen line -->
+              <div class="box-footer"> <!-- bottom row: price and button -->
+                <div> <!-- wrapper for price and minimum order -->
+                  <span class="box-price">$13.00</span> <!-- price per box -->
+                  <span class="box-unit">/ box</span> <!-- small unit text -->
+                  <p class="box-moq">Min. order 20 boxes</p> <!-- minimum order quantity -->
+                </div> <!-- end of price wrapper -->
+                <a href="detail.html" class="btn btn-outline btn-small">View details</a> <!-- button to the Detail page -->
+              </div> <!-- end of footer row -->
+            </div> <!-- end of text part -->
+          </article> <!-- end of card 4 -->
+
+          <article class="box-card"> <!-- card for Bento Box 5 -->
+            <div class="box-image"> <!-- frame for the picture, compare tick and calorie badge -->
+              <img src="images/bento-5.svg" alt="Nasi Lemak (Light) Box"> <!-- placeholder picture -->
+              <label class="compare-check"><input type="checkbox"> Compare</label> <!-- tick box to add to compare -->
+              <span class="kcal-badge">610 kcal</span> <!-- calorie badge -->
+            </div> <!-- end of picture frame -->
+            <div class="box-body"> <!-- text part of the card -->
+              <p class="box-caterer">Daily Bowl Kitchen</p> <!-- caterer name -->
+              <h3 class="box-name"><a href="detail.html">Nasi Lemak (Light) Box</a></h3> <!-- box name -->
+              <div class="box-tags"> <!-- row of dietary tags -->
+                <span class="tag tag-blue">Halal-certified</span> <!-- tag 1 -->
+              </div> <!-- end of tags -->
+              <p class="box-allergen">Contains: Fish, Nuts, Eggs</p> <!-- allergen line -->
+              <div class="box-footer"> <!-- bottom row: price and button -->
+                <div> <!-- wrapper for price and minimum order -->
+                  <span class="box-price">$10.50</span> <!-- price per box -->
+                  <span class="box-unit">/ box</span> <!-- small unit text -->
+                  <p class="box-moq">Min. order 30 boxes</p> <!-- minimum order quantity -->
+                </div> <!-- end of price wrapper -->
+                <a href="detail.html" class="btn btn-outline btn-small">View details</a> <!-- button to the Detail page -->
+              </div> <!-- end of footer row -->
+            </div> <!-- end of text part -->
+          </article> <!-- end of card 5 -->
+
+          <article class="box-card"> <!-- card for Bento Box 6 -->
+            <div class="box-image"> <!-- frame for the picture, compare tick and calorie badge -->
+              <img src="images/bento-6.svg" alt="Sambal Tempeh and Brown Rice Box"> <!-- placeholder picture -->
+              <label class="compare-check"><input type="checkbox"> Compare</label> <!-- tick box to add to compare -->
+              <span class="kcal-badge">480 kcal</span> <!-- calorie badge -->
+            </div> <!-- end of picture frame -->
+            <div class="box-body"> <!-- text part of the card -->
+              <p class="box-caterer">Fresh Tiers Catering</p> <!-- caterer name -->
+              <h3 class="box-name"><a href="detail.html">Sambal Tempeh &amp; Brown Rice Box</a></h3> <!-- box name -->
+              <div class="box-tags"> <!-- row of dietary tags -->
+                <span class="tag tag-green">Vegan</span> <!-- tag 1 -->
+                <span class="tag tag-blue">Halal-certified</span> <!-- tag 2 -->
+              </div> <!-- end of tags -->
+              <p class="box-allergen">Contains: Soy</p> <!-- allergen line -->
+              <div class="box-footer"> <!-- bottom row: price and button -->
+                <div> <!-- wrapper for price and minimum order -->
+                  <span class="box-price">$11.50</span> <!-- price per box -->
+                  <span class="box-unit">/ box</span> <!-- small unit text -->
+                  <p class="box-moq">Min. order 20 boxes</p> <!-- minimum order quantity -->
+                </div> <!-- end of price wrapper -->
+                <a href="detail.html" class="btn btn-outline btn-small">View details</a> <!-- button to the Detail page -->
+              </div> <!-- end of footer row -->
+            </div> <!-- end of text part -->
+          </article> <!-- end of card 6 -->
+
+        </div> <!-- end of card grid -->
+
+        <nav class="pagination" aria-label="Pages of results"> <!-- page numbers at the bottom -->
+          <a href="#">&laquo;</a> <!-- previous page arrow -->
+          <a href="#" class="current">1</a> <!-- page 1 (current page) -->
+          <a href="#">2</a> <!-- page 2 -->
+          <a href="#">3</a> <!-- page 3 -->
+          <a href="#">&raquo;</a> <!-- next page arrow -->
+        </nav> <!-- end of page numbers -->
+
+      </section> <!-- end of results column -->
+    </div> <!-- end of two-column layout -->
+  </main> <!-- end of main content -->
+
+  <footer class="site-footer"> <!-- footer = the bottom bar of the website (same as the Home page) -->
+    <div class="footer-grid container"> <!-- grid with four columns -->
+      <div> <!-- column 1: brand -->
+        <img src="images/logo/BP-Full-White-web.png" alt="BrightPlate" class="footer-logo"> <!-- same white logo on the dark footer -->
+        <p>Healthy bulk catering, with nothing hidden.</p> <!-- tagline -->
+      </div> <!-- end of column 1 -->
+      <div> <!-- column 2: explore links -->
+        <h4>Explore</h4> <!-- column heading -->
+        <ul> <!-- list of links -->
+          <li><a href="browse.html">Browse Bento Boxes</a></li> <!-- link to Browse page -->
+          <li><a href="#">Compare</a></li> <!-- link (page not built yet) -->
+          <li><a href="index.html#how-it-works">How It Works</a></li> <!-- link to the Home page section -->
+        </ul> <!-- end of list -->
+      </div> <!-- end of column 2 -->
+      <div> <!-- column 3: caterer links -->
+        <h4>Caterers</h4> <!-- column heading -->
+        <ul> <!-- list of links -->
+          <li><a href="#">Join as a Caterer</a></li> <!-- link (page not built yet) -->
+          <li><a href="#">Caterer Login</a></li> <!-- link (page not built yet) -->
+        </ul> <!-- end of list -->
+      </div> <!-- end of column 3 -->
+      <div> <!-- column 4: help links -->
+        <h4>Help</h4> <!-- column heading -->
+        <ul> <!-- list of links -->
+          <li><a href="#">About Us</a></li> <!-- link (page not built yet) -->
+          <li><a href="#">Contact</a></li> <!-- link (page not built yet) -->
+          <li><a href="#">Privacy &amp; Cookies</a></li> <!-- link (page not built yet) -->
+        </ul> <!-- end of list -->
+      </div> <!-- end of column 4 -->
+    </div> <!-- end of footer grid -->
+  </footer> <!-- end of footer -->
+
+</body> <!-- end of body -->
+</html> <!-- end of the HTML page -->

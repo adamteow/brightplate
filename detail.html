@@ -1,0 +1,192 @@
+<!DOCTYPE html> <!-- tells the browser this file is an HTML5 page -->
+<html lang="en"> <!-- root element of the page; lang="en" says the page is in English -->
+<head> <!-- head holds information ABOUT the page (not shown on the page) -->
+  <meta charset="UTF-8"> <!-- lets the page show all characters correctly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- makes the page fit phone screens -->
+  <title>Grilled Fish &amp; Brown Rice Box | BrightPlate</title> <!-- text shown on the browser tab -->
+  <link rel="icon" href="images/favicon/favicon.ico" sizes="any"> <!-- main icon shown on the browser tab -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png"> <!-- 32px icon for sharper tabs -->
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png"> <!-- 16px icon for small tabs -->
+  <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png"> <!-- icon used when saved to an iPhone or iPad home screen -->
+  <link rel="manifest" href="images/favicon/site.webmanifest"> <!-- app name and icons for Android phones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- speeds up loading of the Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet"> <!-- loads the Poppins and Inter fonts (needs internet) -->
+  <link rel="stylesheet" href="css/style.css"> <!-- connects our CSS file to this page -->
+</head> <!-- end of head -->
+<body> <!-- body holds everything that is shown on the page -->
+
+  <header class="site-header"> <!-- header = the top bar of the website (same as the other pages) -->
+    <nav class="navbar container"> <!-- nav = the navigation menu; container keeps the content centred -->
+      <a href="index.html" class="logo"> <!-- clicking the logo goes back to the Home page -->
+        <img src="images/logo/BP-Full-White-web.png" alt="BrightPlate" height="40"> <!-- final white logo (icon + name) so it shows on the dark header -->
+      </a> <!-- end of logo link -->
+      <ul class="nav-links"> <!-- unordered list holding the menu links -->
+        <li><a href="index.html">Home</a></li> <!-- link to the Home page -->
+        <li><a href="browse.html" class="active">Browse Bento Boxes</a></li> <!-- "active" highlights the section we are in -->
+        <li><a href="index.html#how-it-works">How It Works</a></li> <!-- jumps to the How It Works section on the Home page -->
+        <li><a href="#">Compare</a></li> <!-- Compare page (not built yet, so # for now) -->
+      </ul> <!-- end of menu list -->
+      <div class="nav-buttons"> <!-- group for the Log in and Register buttons -->
+        <a href="#" class="btn btn-text">Log in</a> <!-- Log in button (page not built yet) -->
+        <a href="#" class="btn btn-primary btn-small">Register</a> <!-- Register button (page not built yet) -->
+      </div> <!-- end of button group -->
+    </nav> <!-- end of navigation -->
+  </header> <!-- end of header -->
+
+  <main class="container"> <!-- main content; container keeps it centred -->
+
+    <p class="breadcrumb"><a href="index.html">Home</a> / <a href="browse.html">Browse Bento Boxes</a> / Grilled Fish &amp; Brown Rice Box</p> <!-- breadcrumb shows where the visitor is -->
+
+    <section class="detail-top"> <!-- top part: pictures on the left, information on the right -->
+
+      <div class="detail-gallery"> <!-- left side: the pictures -->
+        <img src="images/bento-1.svg" alt="Grilled Fish and Brown Rice Box" class="main-image"> <!-- big placeholder picture -->
+        <div class="thumbs"> <!-- row of small pictures -->
+          <img src="images/bento-1.svg" alt="Picture 1" class="thumb selected"> <!-- thumbnail 1 (selected) -->
+          <img src="images/bento-2.svg" alt="Picture 2" class="thumb"> <!-- thumbnail 2 -->
+          <img src="images/bento-3.svg" alt="Picture 3" class="thumb"> <!-- thumbnail 3 -->
+          <img src="images/bento-4.svg" alt="Picture 4" class="thumb"> <!-- thumbnail 4 -->
+        </div> <!-- end of thumbnails -->
+      </div> <!-- end of left side -->
+
+      <div class="detail-info"> <!-- right side: the information -->
+        <div class="box-tags"> <!-- row of tags above the title -->
+          <span class="tag tag-green">High-Protein</span> <!-- tag 1 -->
+          <span class="tag tag-green">Low-GI</span> <!-- tag 2 -->
+          <span class="tag tag-blue">Halal-certified</span> <!-- tag 3 -->
+          <span class="tag tag-grey">Western</span> <!-- cuisine tag -->
+        </div> <!-- end of tags -->
+        <h1>Grilled Fish &amp; Brown Rice Box</h1> <!-- page heading = the box name -->
+        <p class="detail-caterer">by <a href="#">Lean Plate Catering</a></p> <!-- caterer name -->
+        <p class="detail-description">Steamed brown rice with grilled fish fillet, sautéed greens and a light lemon-herb sauce. Packed in a three-compartment Bento Box for easy serving.</p> <!-- description -->
+        <p class="detail-price">$13.50 <span>per box</span></p> <!-- price -->
+        <p class="box-moq">Minimum order: 20 boxes &middot; Order at least 3 days before delivery</p> <!-- ordering rules; &middot; is a small dot -->
+
+        <form class="order-box" action="#" method="post"> <!-- order form inside a white box -->
+          <div class="order-row"> <!-- row with two inputs side by side -->
+            <div class="form-field"> <!-- quantity field -->
+              <label for="quantity">Quantity (boxes)</label> <!-- label linked to the input by id -->
+              <input type="number" id="quantity" name="quantity" value="40" min="20"> <!-- number box; cannot go below the minimum -->
+            </div> <!-- end of quantity field -->
+            <div class="form-field"> <!-- delivery date field -->
+              <label for="delivery-date">Delivery date</label> <!-- label linked to the input by id -->
+              <input type="date" id="delivery-date" name="delivery-date" value="2026-12-04"> <!-- date picker -->
+            </div> <!-- end of delivery date field -->
+          </div> <!-- end of row -->
+          <p class="order-subtotal"><span>Subtotal (before delivery fee and GST)</span> <strong>$540.00</strong></p> <!-- shows the subtotal (fixed number for now) -->
+          <div class="order-buttons"> <!-- row with the two buttons -->
+            <button type="submit" class="btn btn-primary">Add to Cart</button> <!-- adds the box to the cart -->
+            <button type="button" class="btn btn-outline">Compare</button> <!-- adds the box to the compare list -->
+          </div> <!-- end of buttons -->
+        </form> <!-- end of order form -->
+      </div> <!-- end of right side -->
+    </section> <!-- end of top part -->
+
+    <section class="detail-bottom"> <!-- bottom part: nutrition on the left, other information on the right -->
+
+      <article class="nutrition-card"> <!-- green card showing the nutrition facts -->
+        <h2>Nutrition per box</h2> <!-- card heading -->
+        <p class="nutrition-kcal">480 <span>kcal</span></p> <!-- big calorie number -->
+        <div class="nutri-row"> <!-- row for protein -->
+          <span>Protein</span> <!-- nutrient name -->
+          <span>34 g</span> <!-- amount -->
+        </div> <!-- end of protein row -->
+        <progress value="34" max="60">34 g</progress> <!-- simple bar showing the amount out of 60 -->
+        <div class="nutri-row"> <!-- row for carbohydrates -->
+          <span>Carbohydrates</span> <!-- nutrient name -->
+          <span>52 g</span> <!-- amount -->
+        </div> <!-- end of carbohydrates row -->
+        <progress value="52" max="100">52 g</progress> <!-- bar out of 100 -->
+        <div class="nutri-row"> <!-- row for fat -->
+          <span>Fat</span> <!-- nutrient name -->
+          <span>14 g</span> <!-- amount -->
+        </div> <!-- end of fat row -->
+        <progress value="14" max="40">14 g</progress> <!-- bar out of 40 -->
+        <div class="nutri-row"> <!-- row for fibre -->
+          <span>Fibre</span> <!-- nutrient name -->
+          <span>6 g</span> <!-- amount -->
+        </div> <!-- end of fibre row -->
+        <progress value="6" max="30">6 g</progress> <!-- bar out of 30 -->
+        <div class="nutri-row"> <!-- row for sodium -->
+          <span>Sodium</span> <!-- nutrient name -->
+          <span>680 mg</span> <!-- amount -->
+        </div> <!-- end of sodium row -->
+        <progress value="680" max="2000">680 mg</progress> <!-- bar out of 2000 -->
+        <p class="note">Sample data</p> <!-- reminder that the numbers are examples -->
+      </article> <!-- end of nutrition card -->
+
+      <div class="detail-right"> <!-- right column holding two cards -->
+
+        <article class="info-card"> <!-- card for ingredients and dietary information -->
+          <h2>Ingredients</h2> <!-- card heading -->
+          <p>Barramundi fillet, brown rice, broccoli, carrot, baby spinach, garlic, lemon juice, olive oil, fresh dill, sea salt, black pepper.</p> <!-- ingredient list -->
+          <dl class="info-list"> <!-- description list: pairs of label and value -->
+            <dt>Contains:</dt> <!-- label 1 -->
+            <dd><span class="tag tag-coral">Fish</span></dd> <!-- value 1 -->
+            <dt>Does not contain:</dt> <!-- label 2 -->
+            <dd> <!-- value 2 (many tags) -->
+              <span class="tag tag-green">Nuts</span> <!-- tag -->
+              <span class="tag tag-green">Shellfish</span> <!-- tag -->
+              <span class="tag tag-green">Dairy</span> <!-- tag -->
+              <span class="tag tag-green">Eggs</span> <!-- tag -->
+              <span class="tag tag-green">Soy</span> <!-- tag -->
+              <span class="tag tag-green">Gluten</span> <!-- tag -->
+            </dd> <!-- end of value 2 -->
+            <dt>Dietary information:</dt> <!-- label 3 -->
+            <dd> <!-- value 3 (all dietary tags) -->
+              <span class="tag tag-green">High-Protein</span> <!-- tag -->
+              <span class="tag tag-green">Low-GI</span> <!-- tag -->
+              <span class="tag tag-blue">Halal-certified</span> <!-- tag -->
+            </dd> <!-- end of value 3 -->
+          </dl> <!-- end of description list -->
+        </article> <!-- end of ingredients card -->
+
+        <article class="caterer-card"> <!-- card with caterer information -->
+          <div class="avatar">LP</div> <!-- placeholder for the caterer logo: a circle with initials -->
+          <div> <!-- wrapper for caterer text -->
+            <h3>Lean Plate Catering</h3> <!-- caterer name -->
+            <p class="box-moq">Approved caterer &middot; 6 Bento Boxes &middot; Delivers island-wide</p> <!-- short information -->
+          </div> <!-- end of caterer text -->
+          <a href="#" class="btn btn-outline btn-small">View caterer</a> <!-- button (page not built yet) -->
+        </article> <!-- end of caterer card -->
+
+        <p class="notice">Nutrition, allergen and dietary details are entered by the caterer and checked by the admin before a box is published.</p> <!-- yellow notice box -->
+
+      </div> <!-- end of right column -->
+    </section> <!-- end of bottom part -->
+  </main> <!-- end of main content -->
+
+  <footer class="site-footer"> <!-- footer = the bottom bar of the website (same as the other pages) -->
+    <div class="footer-grid container"> <!-- grid with four columns -->
+      <div> <!-- column 1: brand -->
+        <img src="images/logo/BP-Full-White-web.png" alt="BrightPlate" class="footer-logo"> <!-- same white logo on the dark footer -->
+        <p>Healthy bulk catering, with nothing hidden.</p> <!-- tagline -->
+      </div> <!-- end of column 1 -->
+      <div> <!-- column 2: explore links -->
+        <h4>Explore</h4> <!-- column heading -->
+        <ul> <!-- list of links -->
+          <li><a href="browse.html">Browse Bento Boxes</a></li> <!-- link to Browse page -->
+          <li><a href="#">Compare</a></li> <!-- link (page not built yet) -->
+          <li><a href="index.html#how-it-works">How It Works</a></li> <!-- link to the Home page section -->
+        </ul> <!-- end of list -->
+      </div> <!-- end of column 2 -->
+      <div> <!-- column 3: caterer links -->
+        <h4>Caterers</h4> <!-- column heading -->
+        <ul> <!-- list of links -->
+          <li><a href="#">Join as a Caterer</a></li> <!-- link (page not built yet) -->
+          <li><a href="#">Caterer Login</a></li> <!-- link (page not built yet) -->
+        </ul> <!-- end of list -->
+      </div> <!-- end of column 3 -->
+      <div> <!-- column 4: help links -->
+        <h4>Help</h4> <!-- column heading -->
+        <ul> <!-- list of links -->
+          <li><a href="#">About Us</a></li> <!-- link (page not built yet) -->
+          <li><a href="#">Contact</a></li> <!-- link (page not built yet) -->
+          <li><a href="#">Privacy &amp; Cookies</a></li> <!-- link (page not built yet) -->
+        </ul> <!-- end of list -->
+      </div> <!-- end of column 4 -->
+    </div> <!-- end of footer grid -->
+  </footer> <!-- end of footer -->
+
+</body> <!-- end of body -->
+</html> <!-- end of the HTML page -->
